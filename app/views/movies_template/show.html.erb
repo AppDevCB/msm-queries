@@ -1,0 +1,77 @@
+<h1>
+  Movie #<%= @the_movie.id %> details
+</h1>
+
+<a href="/movies" class="btn btn-block btn-outline-secondary">
+  Go back
+</a>
+
+&nbsp;|&nbsp;
+
+<a href="/delete_movie/1" class="btn btn-block btn-outline-secondary">
+  Delete movie
+  <small>(Building this link is not required. It's an optional stretch goal; but, you have the tools if you want to give it a try.)</small>
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%=@the_movie.title%>
+  </dd>
+
+  <dt>
+    Year
+  </dt>
+  <dd>
+    <%=@the_movie.year%>
+  </dd>
+
+  <dt>
+    Duration
+  </dt>
+  <dd>
+    <%=@the_movie.duration%>
+  </dd>
+
+  <dt>
+    Description
+  </dt>
+  <dd>
+    <%=@the_movie.description%>
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <img src="https://image.tmdb.org/t/p/w500/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg" style="width:250px;">
+  </dd>
+
+  <dt>
+    Director
+  </dt>
+  <dd>
+      <% m = Director.where({ :id => @the_movie.director_id}).at(0)%>
+      <%= m.name %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+        <%= time_ago_in_words(@the_movie.created_at) %>
+    <%= time_ago_in_words(Time.now - 2.hours)%>
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+        <%= time_ago_in_words(@the_movie.updated_at) %>
+    <%= time_ago_in_words(Time.now - 2.hours)%>
+  </dd>
+</dl>

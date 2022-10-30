@@ -6,16 +6,6 @@
   Go back
 </a>
 
-&nbsp;|&nbsp;
-
-
-<a href="/delete_director/<%=@the_director.id%>" class="btn btn-block btn-outline-secondary">
-  Delete director
-  <small>(Building this link is not required. It's an optional stretch goal; but, you have the tools if you want to give it a try.)</small>
-</a>
-
-<hr>
-
 <dl>
   <dt>
     Name
@@ -74,13 +64,9 @@
 <td>
    <img src="http://robohash.org/24">
    </td>
-          <td>
-          <% Director.where({ :id=> element.director_id}).at(0) %>
-
-    </td>
 
               <td>
-      <a href=""> Show details </a>
+      <a href="/movies/<%= element.id%>"> Show details </a>
     </td>
 
     </tr>
